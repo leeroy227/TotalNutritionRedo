@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+
+    <TextView
+        android:id="@+id/home_time_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="@string/time_label1100"
+        app:layout_constraintBaseline_toBaselineOf="@+id/home_items_selected"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/home_items_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/select_food_hint"
+        app:layout_constraintBaseline_toBaselineOf="@+id/home_add_food_button1100"
+        app:layout_constraintEnd_toStartOf="@+id/home_add_food_button1100"
+        app:layout_constraintStart_toEndOf="@+id/home_time_label" />
+
+    <TextView
+        android:id="@+id/home_time_label6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="@string/time_label_misc"
+        app:layout_constraintBaseline_toBaselineOf="@+id/home_items_selected6"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/home_items_selected6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/select_food_hint"
+        app:layout_constraintBaseline_toBaselineOf="@+id/home_add_food_button_misc"
+        app:layout_constraintEnd_toStartOf="@+id/home_add_food_button_misc"
+        app:layout_constraintStart_toEndOf="@+id/home_time_label6" />
+
+    <TextView
+        android:id="@+id/home_time_label5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="@string/time_label1800"
+        app:layout_constraintBaseline_toBaselineOf="@+id/home_items_selected5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/home_items_selected5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/select_food_hint"
+        app:layout_constraintBaseline_toBaselineOf="@+id/home_add_food_button1800"
+        app:layout_constraintEnd_toStartOf="@+id/home_add_food_button1800"
+        app:layout_constraintStart_toEndOf="@+id/home_time_label5" />
+
+    <TextView
+        android:id="@+id/home_time_label4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="@string/time_label1500"
+        app:layout_constraintBaseline_toBaselineOf="@+id/home_items_selected4"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/home_items_selected4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/select_food_hint"
+        app:layout_constraintBaseline_toBaselineOf="@+id/home_add_food_button1500"
+        app:layout_constraintEnd_toStartOf="@+id/home_add_food_button1500"
+        app:layout_constraintStart_toEndOf="@+id/home_time_label4" />
+
+    <TextView
+        android:id="@+id/home_time_label3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="@string/time_label1200"
+        app:layout_constraintBaseline_toBaselineOf="@+id/home_items_selected3"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/home_items_selected3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/select_food_hint"
+        app:layout_constraintBaseline_toBaselineOf="@+id/home_add_food_button1200"
+        app:layout_constraintEnd_toStartOf="@+id/home_add_food_button1200"
+        app:layout_constraintStart_toEndOf="@+id/home_time_label3" />
+
+    <TextView
+        android:id="@+id/home_time_label0900"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="@string/time_label0900"
+        app:layout_constraintBaseline_toBaselineOf="@+id/home_items_selected0900"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/home_items_selected0900"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/select_food_hint"
+        app:layout_constraintBaseline_toBaselineOf="@+id/home_add_food_button0900"
+        app:layout_constraintEnd_toStartOf="@+id/home_add_food_button0900"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toEndOf="@+id/home_time_label0900" />
+
+    <TextView
+        android:id="@+id/home_calories_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/home_protein_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/home_calories_tv" />
+
+    <TextView
+        android:id="@+id/home_carb_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/home_fat_tv"
+        app:layout_constraintStart_toEndOf="@+id/home_protein_tv"
+        app:layout_constraintTop_toTopOf="@id/home_calories_tv" />
+
+    <TextView
+        android:id="@+id/home_fat_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/home_calories_tv" />
+
+    <Button
+        android:id="@+id/home_add_food_button0600"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/add_food"
+        app:layout_constraintBottom_toTopOf="@+id/home_add_food_button0900"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/home_add_food_button0900"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="21dp"
+        android:text="@string/add_food"
+        app:layout_constraintBottom_toTopOf="@+id/home_add_food_button1100"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_add_food_button0600" />
+
+    <Button
+        android:id="@+id/home_add_food_button1100"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/add_food"
+        app:layout_constraintBottom_toTopOf="@+id/home_add_food_button1200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_add_food_button0900" />
+
+    <Button
+        android:id="@+id/home_add_food_button1200"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="21dp"
+        android:text="@string/add_food"
+        app:layout_constraintBottom_toTopOf="@+id/home_add_food_button1500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_add_food_button1100" />
+
+    <Button
+        android:id="@+id/home_add_food_button1500"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/add_food"
+        app:layout_constraintBottom_toTopOf="@+id/home_add_food_button1800"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_add_food_button1200" />
+
+    <Button
+        android:id="@+id/home_add_food_button1800"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="21dp"
+        android:text="@string/add_food"
+        app:layout_constraintBottom_toTopOf="@+id/home_add_food_button_misc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_add_food_button1500" />
+
+    <Button
+        android:id="@+id/home_add_food_button_misc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="160dp"
+        android:text="@string/add_food"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_add_food_button1800" />
+
+    <TextView
+        android:id="@+id/home_items_selected0600"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/select_food_hint"
+        app:layout_constraintBaseline_toBaselineOf="@+id/home_add_food_button0600"
+        app:layout_constraintEnd_toStartOf="@+id/home_add_food_button0600"
+        app:layout_constraintStart_toEndOf="@+id/home_time_label0600" />
+
+    <TextView
+        android:id="@+id/home_time_label0600"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="@string/time_label0600"
+        app:layout_constraintBaseline_toBaselineOf="@+id/home_items_selected0600"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.leeroy.myapplication;
+package com.leeroy.totalNutrition;
 
 import android.os.Bundle;
 
@@ -9,13 +9,13 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.leeroy.myapplication.databinding.ActivityMainBinding;
+import com.leeroy.totalNutrition.databinding.ActivityMainBinding;
 
 
 public class MainActivity extends AppCompatActivity {
 
 
-
+    public static int counter=0;
     private ActivityMainBinding binding;
 
     @Override

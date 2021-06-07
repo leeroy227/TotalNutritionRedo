@@ -1,8 +1,6 @@
-package com.leeroy.myapplication;
+package com.leeroy.totalNutrition;
 
 import android.os.AsyncTask;
-
-import com.leeroy.myapplication.ui.foodItems.FoodItemsFragment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,9 +18,9 @@ import java.util.List;
 
 public class FetchData extends AsyncTask<Void,Void,Void> {
     public static List<FoodItem> foodItemList= new ArrayList<>();
-    String singleParsed = "";
+
     String data = "";
-    String dataParsed="";
+
 
 
 
@@ -59,58 +57,6 @@ public class FetchData extends AsyncTask<Void,Void,Void> {
                         0,0,0,0,0,0,0,0,0,0,
                         0,0,0,0);
                 JSONObject JO = (JSONObject) JA.get(i);
-                singleParsed = "Name: " +JO.get("name")+ "\n"+
-                        "Serving size: "+JO.get("Serving size")+ "\n"+
-                        "Calories: "+JO.get("Calories")+ "\n"+
-                        "Total Fat (g): "+JO.get("Total Fat (g)")+ "\n"+
-                        "Saturated fat (g) <20: "+JO.get("Saturated fat (g) <20")+ "\n"+
-                        "Trans fat (g): "+JO.get("Trans fat (g)")+ "\n"+
-                        "Polyunsaturated fat (g): "+JO.get("Polyunsaturated fat (g)")+ "\n"+
-                        "Monounsaturated fat (g): "+JO.get("Monounsaturated fat (g)")+ "\n"+
-                        "Cholesterol (mg): "+JO.get("Cholesterol (mg)")+ "\n"+
-                        "Sodium (mg) <2300: "+JO.get("Sodium (mg) <2300")+ "\n"+
-                        "Total Carbohydrate (g): "+JO.get("Total Carbohydrate (g)")+ "\n"+
-                        "Dietary Fiber (g): "+JO.get("Dietary Fiber (g)")+ "\n"+
-                        "Total Sugars (g): "+JO.get("Total Sugars (g)")+ "\n"+
-                        "Incl. Added Sugars (g): "+JO.get("Incl. Added Sugars (g)")+ "\n"+
-                        "Protein (g): "+JO.get("Protein (g)")+ "\n"+
-                        "Vitamin D (µg) 20: "+JO.get("Vitamin D (µg) 20")+ "\n"+
-                        "Calcium (mg) 1300: "+JO.get("Calcium (mg) 1300")+ "\n"+
-                        "Iron (mg) 18: "+JO.get("Iron (mg) 18")+ "\n"+
-                        "Potassium (mg) 4700: "+JO.get("Potassium (mg) 4700")+ "\n"+
-                        "Vitamin A (µg) 900: "+JO.get("Vitamin A (µg) 900")+ "\n"+
-                        "Vitamin C (mg) 90: "+JO.get("Vitamin C (mg) 90")+ "\n"+
-                        "Vitamin E (mg) 15: "+JO.get("Vitamin E (mg) 15")+ "\n"+
-                        "Vitamin K (µg) 120: "+JO.get("Vitamin K (µg) 120")+ "\n"+
-                        "Thiamin (mg) 1.2: "+JO.get("Thiamin (mg) 1.2")+ "\n"+
-                        "Riboflavin (mg) 1.3: "+JO.get("Riboflavin (mg) 1.3")+ "\n"+
-                        "Niacin (mg) 16: "+JO.get("Niacin (mg) 16")+ "\n"+
-                        "Vitamin B6 (mg) 1.7: "+JO.get("Vitamin B6 (mg) 1.7")+ "\n"+
-                        "Folate (DFE) (µg) 400: "+JO.get("Folate (DFE) (µg) 400")+ "\n"+
-                        "Vitamin B12 (µg) 2.4: "+JO.get("Vitamin B12 (µg) 2.4")+ "\n"+
-                        "Biotin (µg) 30: "+JO.get("Biotin (µg) 30")+ "\n"+
-                        "Pantothenic acid (mg) 5: "+JO.get("Pantothenic acid (mg) 5")+ "\n"+
-                        "Phosphorus (mg) 1250: "+JO.get("Phosphorus (mg) 1250")+ "\n"+
-                        "Iodine (mg) 150: "+JO.get("Iodine (mg) 150")+ "\n"+
-                        "Magnesium (mg) 420: "+JO.get("Magnesium (mg) 420")+ "\n"+
-                        "Zinc (mg) 11: "+JO.get("Zinc (mg) 11")+ "\n"+
-                        "Selenium (mg) 55: "+JO.get("Selenium (mg) 55")+ "\n"+
-                        "Copper (mg) .9: "+JO.get("Copper (mg) .9")+ "\n"+
-                        "Manganese (mg) 2.3: "+JO.get("Manganese (mg) 2.3")+ "\n"+
-                        "Chromium (µg) 35: "+JO.get("Chromium (µg) 35")+ "\n"+
-                        "Molybdenum (µg) 45: "+JO.get("Molybdenum (µg) 45")+ "\n"+
-                        "Chloride (mg) 2300: "+JO.get("Chloride (mg) 2300")+ "\n"+
-                        "Choline (mg) 550: "+JO.get("Choline (mg) 550")+ "\n"+
-                        "Vitamin D3 (mg): "+JO.get("Vitamin D3 (mg)")+ "\n"+
-                        "Vitamin K2 (mg): "+JO.get("Vitamin K2 (mg)")+ "\n"+
-                        "Lycopene (mg): "+JO.get("Lycopene (mg)")+ "\n"+
-                        "Lutein (mg): "+JO.get("Lutein (mg)")+ "\n"+
-                        "Zeaxanthin (mg): "+JO.get("Zeaxanthin (mg)")+ "\n"+
-                        "Omega-3 (g): "+JO.get("Omega-3 (g)")+ "\n"+
-                        "Omega-6 (g): "+JO.get("Omega-6 (g)")+ "\n"+
-                        "MCTs (g): "+JO.get("MCTs (g)")+ "\n"+
-                        "Bacillus Coagulans (mn): "+JO.get("Bacillus Coagulans (mn)")+ "\n"+
-                        "Epigallocatechin Gallate: "+JO.get("Epigallocatechin Gallate")+ "\n";
 
 
                 item.setName((String) JO.get("name"));
@@ -167,13 +113,9 @@ public class FetchData extends AsyncTask<Void,Void,Void> {
                 item.setEpigallocatechinGallate(JO.getDouble("Epigallocatechin Gallate"));
 
                 foodItemList.add(item);
-                dataParsed=dataParsed+singleParsed+"\n";
+
             }
-            System.out.println(JA.length());
-            System.out.println(foodItemList.size());
-            for(int i = 0; i<foodItemList.size();i++){
-                System.out.println(foodItemList.get(i).getCarbs());
-            }
+
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -188,7 +130,6 @@ public class FetchData extends AsyncTask<Void,Void,Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        FoodItemsFragment.text=dataParsed;
 
 
 

@@ -1,4 +1,4 @@
-package com.leeroy.myapplication;
+package com.leeroy.totalNutrition;
 
 public class FoodItem {
     String name ="";

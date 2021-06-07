@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.leeroy.myapplication.ui.home.HomeFragment"
+        android:name="com.leeroy.totalNutrition.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_nutrition_facts"
-        android:name="com.leeroy.myapplication.ui.nutritionFacts.NutritionFactsFragment"
+        android:name="com.leeroy.totalNutrition.ui.nutritionFacts.NutritionFactsFragment"
         android:label="@string/title_nutrition_facts"
         tools:layout="@layout/fragment_nutrition" />
 
     <fragment
         android:id="@+id/navigation_food_items"
-        android:name="com.leeroy.myapplication.ui.foodItems.FoodItemsFragment"
+        android:name="com.leeroy.totalNutrition.ui.foodItems.FoodItemsFragment"
         android:label="@string/food_items"
         tools:layout="@layout/fragment_food_items" />
 </navigation>

@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FetchData extends AsyncTask<Void,Void,Void> {
+
     public static List<FoodItem> foodItemList= new ArrayList<>();
 
     String data = "";
@@ -105,7 +106,6 @@ public class FetchData extends AsyncTask<Void,Void,Void> {
 
                 foodItemList.add(item);
             }
-
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {

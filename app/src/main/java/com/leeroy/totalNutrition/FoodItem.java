@@ -3,56 +3,13 @@ package com.leeroy.totalNutrition;
 public class FoodItem {
     String name ="";
     String servingSize ="";
-    double calories =0;
-    double fat =0;
-    double saturatedFat =0;
-    double transFat =0;
-    double polyunsaturatedFat =0;
-    double monounsaturatedFat =0;
-    double cholesterol =0;
-    double sodium=0;
-    double carbs=0;
-    double fiber=0;
-    double sugars=0;
-    double addedSugars=0;
-    double protein=0;
-    double vitaminD=0;
-    double calcium=0;
-    double iron=0;
-    double potassium=0;
-    double vitaminA=0;
-    double vitaminC=0;
-    double vitaminE=0;
-    double vitaminK=0;
-    double thiamin=0;
-    double riboflavin=0;
-    double niacin=0;
-    double vitaminB6=0;
-    double folate=0;
-    double vitaminB12=0;
-    double biotin=0;
-    double pantothenicAcid=0;
-    double phosphorus=0;
-    double iodine=0;
-    double magnesium=0;
-    double zinc=0;
-    double selenium=0;
-    double copper=0;
-    double manganese=0;
-    double chromium=0;
-    double molybdenum=0;
-    double chloride=0;
-    double choline=0;
-    double vitaminD3=0;
-    double vitaminK2=0;
-    double lycopene=0;
-    double lutein=0;
-    double zeaxanthin=0;
-    double omega3=0;
-    double omega6=0;
-    double mcts=0;
-    double bacillusCoagulans=0;
-    double epigallocatechinGallate=0;
+    double calories =0, fat =0, saturatedFat =0, transFat =0, polyunsaturatedFat =0, monounsaturatedFat =0,
+           cholesterol =0, sodium=0,carbs=0, fiber=0, sugars=0, addedSugars=0, protein=0, vitaminD=0,
+           calcium=0, iron=0, potassium=0, vitaminA=0, vitaminC=0, vitaminE=0, vitaminK=0, thiamin=0,
+           riboflavin=0, niacin=0, vitaminB6=0, folate=0, vitaminB12=0, biotin=0, pantothenicAcid=0,
+           phosphorus=0, iodine=0, magnesium=0, zinc=0, selenium=0, copper=0, manganese=0, chromium=0,
+           molybdenum=0, chloride=0, choline=0, vitaminD3=0, vitaminK2=0, lycopene=0, lutein=0, zeaxanthin=0,
+           omega3=0, omega6=0, mcts=0, bacillusCoagulans=0, epigallocatechinGallate=0;
 
     public String getServingSize() {
         return servingSize;
@@ -266,9 +223,7 @@ public class FoodItem {
         return pantothenicAcid;
     }
 
-    public void setPantothenicAcid(double pantothenicAcid) {
-        this.pantothenicAcid = pantothenicAcid;
-    }
+    public void setPantothenicAcid(double pantothenicAcid) { this.pantothenicAcid = pantothenicAcid; }
 
     public double getPhosphorus() {
         return phosphorus;

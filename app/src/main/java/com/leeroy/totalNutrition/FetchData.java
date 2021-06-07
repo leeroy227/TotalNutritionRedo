@@ -21,31 +21,23 @@ public class FetchData extends AsyncTask<Void,Void,Void> {
 
     String data = "";
 
-
-
-
     @Override
     protected Void doInBackground(Void... voids) {
         try {
             URL url = new URL("https://script.google.com/macros/s/AKfycbyvxIsY3Krb4MDhw0Po3LXT3Wm2K-xooz8ih8SrX5Zh8Qxznfo/exec");
-
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 
-
             String line = "";
-
             while (line != null) {
                 line = bufferedReader.readLine();
                 data = data + line;
-
             }
+
             bufferedReader.close();
             inputStream.close();
             httpURLConnection.disconnect();
-
 
             JSONObject Jo = new JSONObject(data);
             JSONArray JA = Jo.getJSONArray("data");
@@ -57,7 +49,6 @@ public class FetchData extends AsyncTask<Void,Void,Void> {
                         0,0,0,0,0,0,0,0,0,0,
                         0,0,0,0);
                 JSONObject JO = (JSONObject) JA.get(i);
-
 
                 item.setName((String) JO.get("name"));
                 item.setServingSize((String) JO.get("Serving size"));
@@ -113,7 +104,6 @@ public class FetchData extends AsyncTask<Void,Void,Void> {
                 item.setEpigallocatechinGallate(JO.getDouble("Epigallocatechin Gallate"));
 
                 foodItemList.add(item);
-
             }
 
         } catch (MalformedURLException e) {
@@ -123,15 +113,11 @@ public class FetchData extends AsyncTask<Void,Void,Void> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-
-
-
     }
 }

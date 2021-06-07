@@ -13,13 +13,15 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:text="@string/time_label1100"
-        app:layout_constraintBaseline_toBaselineOf="@+id/home_items_selected"
+        app:layout_constraintBaseline_toBaselineOf="@+id/home_items_selected1100"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/home_items_selected"
-        android:layout_width="wrap_content"
+        android:id="@+id/home_items_selected1100"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:hint="@string/select_food_hint"
         app:layout_constraintBaseline_toBaselineOf="@+id/home_add_food_button1100"
         app:layout_constraintEnd_toStartOf="@+id/home_add_food_button1100"
@@ -32,13 +34,15 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:text="@string/time_label_misc"
-        app:layout_constraintBaseline_toBaselineOf="@+id/home_items_selected6"
+        app:layout_constraintBaseline_toBaselineOf="@+id/home_items_selected_misc"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/home_items_selected6"
-        android:layout_width="wrap_content"
+        android:id="@+id/home_items_selected_misc"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:hint="@string/select_food_hint"
         app:layout_constraintBaseline_toBaselineOf="@+id/home_add_food_button_misc"
         app:layout_constraintEnd_toStartOf="@+id/home_add_food_button_misc"
@@ -51,13 +55,15 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:text="@string/time_label1800"
-        app:layout_constraintBaseline_toBaselineOf="@+id/home_items_selected5"
+        app:layout_constraintBaseline_toBaselineOf="@+id/home_items_selected1800"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/home_items_selected5"
-        android:layout_width="wrap_content"
+        android:id="@+id/home_items_selected1800"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:hint="@string/select_food_hint"
         app:layout_constraintBaseline_toBaselineOf="@+id/home_add_food_button1800"
         app:layout_constraintEnd_toStartOf="@+id/home_add_food_button1800"
@@ -70,14 +76,17 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:text="@string/time_label1500"
-        app:layout_constraintBaseline_toBaselineOf="@+id/home_items_selected4"
+        app:layout_constraintBaseline_toBaselineOf="@+id/home_items_selected1500"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/home_items_selected4"
-        android:layout_width="wrap_content"
+        android:id="@+id/home_items_selected1500"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:hint="@string/select_food_hint"
+        android:scrollHorizontally="true"
         app:layout_constraintBaseline_toBaselineOf="@+id/home_add_food_button1500"
         app:layout_constraintEnd_toStartOf="@+id/home_add_food_button1500"
         app:layout_constraintStart_toEndOf="@+id/home_time_label4" />
@@ -89,13 +98,15 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:text="@string/time_label1200"
-        app:layout_constraintBaseline_toBaselineOf="@+id/home_items_selected3"
+        app:layout_constraintBaseline_toBaselineOf="@+id/home_items_selected1200"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/home_items_selected3"
-        android:layout_width="wrap_content"
+        android:id="@+id/home_items_selected1200"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:hint="@string/select_food_hint"
         app:layout_constraintBaseline_toBaselineOf="@+id/home_add_food_button1200"
         app:layout_constraintEnd_toStartOf="@+id/home_add_food_button1200"
@@ -113,8 +124,10 @@
 
     <TextView
         android:id="@+id/home_items_selected0900"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:hint="@string/select_food_hint"
         app:layout_constraintBaseline_toBaselineOf="@+id/home_add_food_button0900"
         app:layout_constraintEnd_toStartOf="@+id/home_add_food_button0900"
@@ -125,6 +138,7 @@
         android:id="@+id/home_calories_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/home_cal_hint"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -138,6 +152,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="50dp"
+        android:hint="@string/home_protein_hint"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/home_calories_tv" />
@@ -147,6 +162,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:hint="@string/home_carb_hint"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/home_fat_tv"
         app:layout_constraintStart_toEndOf="@+id/home_protein_tv"
@@ -159,6 +175,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
+        android:hint="@string/home_fat_hint"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/home_calories_tv" />
@@ -242,9 +259,13 @@
 
     <TextView
         android:id="@+id/home_items_selected0600"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:hint="@string/select_food_hint"
+        android:isScrollContainer="true"
+        android:overScrollMode="never"
         app:layout_constraintBaseline_toBaselineOf="@+id/home_add_food_button0600"
         app:layout_constraintEnd_toStartOf="@+id/home_add_food_button0600"
         app:layout_constraintStart_toEndOf="@+id/home_time_label0600" />
@@ -255,7 +276,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:text="@string/time_label0600"
+        android:text="0600"
         app:layout_constraintBaseline_toBaselineOf="@+id/home_items_selected0600"
         app:layout_constraintStart_toStartOf="parent" />
 

@@ -11,11 +11,16 @@
     <string name="time_label1200">1200</string>
     <string name="time_label1500">1500</string>
     <string name="time_label1800">1800</string>
-    <string name="time_label_misc">misc</string>
-    <string name="select_food_hint">Please select food items.</string>
+    <string name="time_label_misc">Misc</string>
+    <string name="select_food_hint">Please add food items.</string>
     <string name="protein_macro">%</string>
     <string name="add_food_button_dialog_title">Available Foods:</string>
     <string name="dismiss_label">Dismiss</string>
     <string name="clear_all_label">Clear All</string>
     <string name="ok_labl">OK</string>
+    <string name="empty_text">" "</string>
+    <string name="home_cal_hint">0 Cal </string>
+    <string name="home_protein_hint">0% P </string>
+    <string name="home_carb_hint">0% C </string>
+    <string name="home_fat_hint">0% F </string>
 </resources>

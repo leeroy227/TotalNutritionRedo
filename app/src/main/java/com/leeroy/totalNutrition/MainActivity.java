@@ -15,7 +15,7 @@ import com.leeroy.totalNutrition.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
 
-    public static int counter=0;
+
     private ActivityMainBinding binding;
 
     @Override

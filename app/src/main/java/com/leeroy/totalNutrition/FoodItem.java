@@ -1,6 +1,9 @@
 package com.leeroy.totalNutrition;
 
+import android.widget.Button;
+
 public class FoodItem {
+
     String name ="";
     String servingSize ="";
     double calories =0, fat =0, saturatedFat =0, transFat =0, polyunsaturatedFat =0, monounsaturatedFat =0,

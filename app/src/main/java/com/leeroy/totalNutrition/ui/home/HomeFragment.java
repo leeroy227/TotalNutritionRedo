@@ -15,14 +15,17 @@ import com.leeroy.totalNutrition.R;
 import com.leeroy.totalNutrition.databinding.FragmentHomeBinding;
 
 import java.util.ArrayList;
-
+import java.util.Arrays;
 
 
 public class HomeFragment extends Fragment {
 
 
-    double totalCal=0, totalProtein=0, totalCarbs=0, totalFat=0, totalMacros=0, proteinPercent=0,
-    carbPercent=0,fatPercent=0;
+    double totalCal0600=0,totalCal0900=0,totalCal1100=0,totalCal1200=0,totalCal1500=0,totalCal1800=0,totalCalMisc=0, totalCal=0;
+    double totalProtein0600=0,totalProtein0900=0,totalProtein1100=0,totalProtein1200=0,totalProtein1500=0,totalProtein1800=0,totalProteinMisc=0,totalProtein=0;
+    double totalCarbs0600=0,totalCarbs0900=0,totalCarbs1100=0,totalCarbs1200=0,totalCarbs1500=0,totalCarbs1800=0,totalCarbsMisc=0,totalCarbs=0;
+    double totalFat0600=0,totalFat0900=0,totalFat1100=0,totalFat1200=0,totalFat1500=0,totalFat1800=0,totalFatMisc=0,totalFat=0;
+    double totalMacros=0, proteinPercent=0, carbPercent=0, fatPercent=0;
 
     int size = FetchData.foodItemList.size();
 
@@ -30,6 +33,7 @@ public class HomeFragment extends Fragment {
 
     boolean[] checkedItems0600= new boolean[selectableFoods.length];
     ArrayList<Integer> itemsSelected0600 = new ArrayList<>();
+    int count0600=0;
 
     boolean[] checkedItems0900= new boolean[selectableFoods.length];
     ArrayList<Integer> itemsSelected0900 = new ArrayList<>();
@@ -72,6 +76,16 @@ public class HomeFragment extends Fragment {
                         if (isChecked) {
                             itemsSelected0600.add(position);
                         } else {
+                            for (int j = 0; j < itemsSelected0600.size() ; j++) {
+                                for (int k = 0; k < FetchData.foodItemList.size(); k++) {
+                                    if (FetchData.foodItemList.get(k).getName().equals(selectableFoods[itemsSelected0600.get(j)])) {
+                                        totalCal = totalCal - FetchData.foodItemList.get(k).getCalories();
+                                        totalProtein = totalProtein - FetchData.foodItemList.get(k).getProtein();
+                                        totalCarbs = totalCarbs - FetchData.foodItemList.get(k).getCarbs();
+                                        totalFat = totalFat - FetchData.foodItemList.get(k).getFat();
+                                    }
+                                }
+                            }
                             itemsSelected0600.remove(((Integer.valueOf(position))));
                         }
                     }
@@ -89,26 +103,21 @@ public class HomeFragment extends Fragment {
                             }
                         }
                         binding.homeItemsSelected0600.setText(item);
-                        for (int i = 0; i < itemsSelected0600.size() ; i++) {
-                            for (int j = 0; j < FetchData.foodItemList.size(); j++) {
-                                if (FetchData.foodItemList.get(j).getName().equals(selectableFoods[itemsSelected0600.get(i)])) {
-                                    totalCal = totalCal + FetchData.foodItemList.get(j).getCalories();
-                                    totalProtein = totalProtein + FetchData.foodItemList.get(j).getProtein();
-                                    totalCarbs = totalCarbs + FetchData.foodItemList.get(j).getCarbs();
-                                    totalFat = totalFat + FetchData.foodItemList.get(j).getFat();
-                                    System.out.println("testing testing");
-                                }
+
+                        totalCal0600=0;
+                        totalProtein0600=0;
+                        totalCarbs0600=0;
+                        totalFat0600=0;
+
+                        for (int k = 0; k < FetchData.foodItemList.size(); k++) {
+                            if (item.contains(FetchData.foodItemList.get(k).getName())) {
+                                totalCal0600 = totalCal0600+ FetchData.foodItemList.get(k).getCalories();
+                                totalProtein0600 = totalProtein0600 + FetchData.foodItemList.get(k).getProtein();
+                                totalCarbs0600 = totalCarbs0600 + FetchData.foodItemList.get(k).getCarbs();
+                                totalFat0600 = totalFat0600 + FetchData.foodItemList.get(k).getFat();
                             }
                         }
-                        totalMacros = totalProtein + totalCarbs + totalFat;
-                        proteinPercent = (totalProtein / totalMacros) * 100;
-                        carbPercent = (totalCarbs / totalMacros) * 100;
-                        fatPercent = (totalFat / totalMacros) * 100;
-
-                        binding.homeCaloriesTv.setText("" + Math.round(totalCal) + " Cal");
-                        binding.homeProteinTv.setText("" + Math.round(proteinPercent) + "% P");
-                        binding.homeCarbTv.setText("" + Math.round(carbPercent) + "% C");
-                        binding.homeFatTv.setText("" + Math.round(fatPercent) + "% F");
+                        displayNumbers();
                     }
                 });
 
@@ -127,6 +136,11 @@ public class HomeFragment extends Fragment {
                             itemsSelected0600.clear();
                             binding.homeItemsSelected0600.setText("");
                         }
+                        totalCal0600=0;
+                        totalProtein0600=0;
+                        totalCarbs0600=0;
+                        totalFat0600=0;
+                        displayNumbers();
                     }
                 });
                 AlertDialog dialog = mBuilder.create();
@@ -148,6 +162,16 @@ public class HomeFragment extends Fragment {
                         if (isChecked) {
                             itemsSelected0900.add(position);
                         } else {
+                            for (int j = 0; j < itemsSelected0900.size() ; j++) {
+                                for (int k = 0; k < FetchData.foodItemList.size(); k++) {
+                                    if (FetchData.foodItemList.get(k).getName().equals(selectableFoods[itemsSelected0900.get(j)])) {
+                                        totalCal = totalCal - FetchData.foodItemList.get(k).getCalories();
+                                        totalProtein = totalProtein - FetchData.foodItemList.get(k).getProtein();
+                                        totalCarbs = totalCarbs - FetchData.foodItemList.get(k).getCarbs();
+                                        totalFat = totalFat - FetchData.foodItemList.get(k).getFat();
+                                    }
+                                }
+                            }
                             itemsSelected0900.remove(((Integer.valueOf(position))));
                         }
                     }
@@ -165,29 +189,21 @@ public class HomeFragment extends Fragment {
                             }
                         }
                         binding.homeItemsSelected0900.setText(item);
-                        for (int i = 0; i < itemsSelected0900.size() ; i++) {
-                            System.out.println("test1");
-                            System.out.println(itemsSelected0900.get(i));
-                            System.out.println(selectableFoods[itemsSelected0900.get(i)]);
-                            for (int j = 0; j < FetchData.foodItemList.size(); j++) {
-                                if (FetchData.foodItemList.get(j).getName().equals(selectableFoods[itemsSelected0900.get(i)])) {
-                                    totalCal = totalCal + FetchData.foodItemList.get(j).getCalories();
-                                    totalProtein = totalProtein + FetchData.foodItemList.get(j).getProtein();
-                                    totalCarbs = totalCarbs + FetchData.foodItemList.get(j).getCarbs();
-                                    totalFat = totalFat + FetchData.foodItemList.get(j).getFat();
-                                    System.out.println("testing testing");
-                                }
+
+                        totalCal0900=0;
+                        totalProtein0900=0;
+                        totalCarbs0900=0;
+                        totalFat0900=0;
+
+                        for (int k = 0; k < FetchData.foodItemList.size(); k++) {
+                            if (item.contains(FetchData.foodItemList.get(k).getName())) {
+                                totalCal0900 = totalCal0900+ FetchData.foodItemList.get(k).getCalories();
+                                totalProtein0900 = totalProtein0900 + FetchData.foodItemList.get(k).getProtein();
+                                totalCarbs0900 = totalCarbs0900 + FetchData.foodItemList.get(k).getCarbs();
+                                totalFat0900 = totalFat0900 + FetchData.foodItemList.get(k).getFat();
                             }
                         }
-                        totalMacros = totalProtein + totalCarbs + totalFat;
-                        proteinPercent = (totalProtein / totalMacros) * 100;
-                        carbPercent = (totalCarbs / totalMacros) * 100;
-                        fatPercent = (totalFat / totalMacros) * 100;
-
-                        binding.homeCaloriesTv.setText("" + Math.round(totalCal) + " Cal");
-                        binding.homeProteinTv.setText("" + Math.round(proteinPercent) + "% P");
-                        binding.homeCarbTv.setText("" + Math.round(carbPercent) + "% C");
-                        binding.homeFatTv.setText("" + Math.round(fatPercent) + "% F");
+                        displayNumbers();
                     }
                 });
 
@@ -206,9 +222,13 @@ public class HomeFragment extends Fragment {
                             itemsSelected0900.clear();
                             binding.homeItemsSelected0900.setText("");
                         }
+                        totalCal0900=0;
+                        totalProtein0900=0;
+                        totalCarbs0900=0;
+                        totalFat0900=0;
+                        displayNumbers();
                     }
                 });
-
                 AlertDialog dialog = mBuilder.create();
                 dialog.show();
             }
@@ -228,6 +248,16 @@ public class HomeFragment extends Fragment {
                         if (isChecked) {
                             itemsSelected1100.add(position);
                         } else {
+                            for (int j = 0; j < itemsSelected1100.size() ; j++) {
+                                for (int k = 0; k < FetchData.foodItemList.size(); k++) {
+                                    if (FetchData.foodItemList.get(k).getName().equals(selectableFoods[itemsSelected1100.get(j)])) {
+                                        totalCal = totalCal - FetchData.foodItemList.get(k).getCalories();
+                                        totalProtein = totalProtein - FetchData.foodItemList.get(k).getProtein();
+                                        totalCarbs = totalCarbs - FetchData.foodItemList.get(k).getCarbs();
+                                        totalFat = totalFat - FetchData.foodItemList.get(k).getFat();
+                                    }
+                                }
+                            }
                             itemsSelected1100.remove(((Integer.valueOf(position))));
                         }
                     }
@@ -245,25 +275,21 @@ public class HomeFragment extends Fragment {
                             }
                         }
                         binding.homeItemsSelected1100.setText(item);
-                        for (int i = 0; i < itemsSelected1100.size() ; i++) {
-                            for (int j = 0; j < FetchData.foodItemList.size(); j++) {
-                                if (FetchData.foodItemList.get(j).getName().equals(selectableFoods[itemsSelected1100.get(i)])) {
-                                    totalCal = totalCal + FetchData.foodItemList.get(j).getCalories();
-                                    totalProtein = totalProtein + FetchData.foodItemList.get(j).getProtein();
-                                    totalCarbs = totalCarbs + FetchData.foodItemList.get(j).getCarbs();
-                                    totalFat = totalFat + FetchData.foodItemList.get(j).getFat();
-                                }
+
+                        totalCal1100=0;
+                        totalProtein1100=0;
+                        totalCarbs1100=0;
+                        totalFat1100=0;
+
+                        for (int k = 0; k < FetchData.foodItemList.size(); k++) {
+                            if (item.contains(FetchData.foodItemList.get(k).getName())) {
+                                totalCal1100 = totalCal1100+ FetchData.foodItemList.get(k).getCalories();
+                                totalProtein1100 = totalProtein1100 + FetchData.foodItemList.get(k).getProtein();
+                                totalCarbs1100 = totalCarbs1100 + FetchData.foodItemList.get(k).getCarbs();
+                                totalFat1100 = totalFat1100 + FetchData.foodItemList.get(k).getFat();
                             }
                         }
-                        totalMacros = totalProtein + totalCarbs + totalFat;
-                        proteinPercent = (totalProtein / totalMacros) * 100;
-                        carbPercent = (totalCarbs / totalMacros) * 100;
-                        fatPercent = (totalFat / totalMacros) * 100;
-
-                        binding.homeCaloriesTv.setText("" + Math.round(totalCal) + " Cal");
-                        binding.homeProteinTv.setText("" + Math.round(proteinPercent) + "% P");
-                        binding.homeCarbTv.setText("" + Math.round(carbPercent) + "% C");
-                        binding.homeFatTv.setText("" + Math.round(fatPercent) + "% F");
+                        displayNumbers();
                     }
                 });
 
@@ -282,6 +308,11 @@ public class HomeFragment extends Fragment {
                             itemsSelected1100.clear();
                             binding.homeItemsSelected1100.setText("");
                         }
+                        totalCal1100=0;
+                        totalProtein1100=0;
+                        totalCarbs1100=0;
+                        totalFat1100=0;
+                        displayNumbers();
                     }
                 });
                 AlertDialog dialog = mBuilder.create();
@@ -303,6 +334,16 @@ public class HomeFragment extends Fragment {
                         if (isChecked) {
                             itemsSelected1200.add(position);
                         } else {
+                            for (int j = 0; j < itemsSelected1200.size() ; j++) {
+                                for (int k = 0; k < FetchData.foodItemList.size(); k++) {
+                                    if (FetchData.foodItemList.get(k).getName().equals(selectableFoods[itemsSelected1200.get(j)])) {
+                                        totalCal = totalCal - FetchData.foodItemList.get(k).getCalories();
+                                        totalProtein = totalProtein - FetchData.foodItemList.get(k).getProtein();
+                                        totalCarbs = totalCarbs - FetchData.foodItemList.get(k).getCarbs();
+                                        totalFat = totalFat - FetchData.foodItemList.get(k).getFat();
+                                    }
+                                }
+                            }
                             itemsSelected1200.remove(((Integer.valueOf(position))));
                         }
                     }
@@ -320,25 +361,21 @@ public class HomeFragment extends Fragment {
                             }
                         }
                         binding.homeItemsSelected1200.setText(item);
-                        for (int i = 0; i < itemsSelected1200.size() ; i++) {
-                            for (int j = 0; j < FetchData.foodItemList.size(); j++) {
-                                if (FetchData.foodItemList.get(j).getName().equals(selectableFoods[itemsSelected1200.get(i)])) {
-                                    totalCal = totalCal + FetchData.foodItemList.get(j).getCalories();
-                                    totalProtein = totalProtein + FetchData.foodItemList.get(j).getProtein();
-                                    totalCarbs = totalCarbs + FetchData.foodItemList.get(j).getCarbs();
-                                    totalFat = totalFat + FetchData.foodItemList.get(j).getFat();
-                                }
+
+                        totalCal1200=0;
+                        totalProtein1200=0;
+                        totalCarbs1200=0;
+                        totalFat1200=0;
+
+                        for (int k = 0; k < FetchData.foodItemList.size(); k++) {
+                            if (item.contains(FetchData.foodItemList.get(k).getName())) {
+                                totalCal1200 = totalCal1200+ FetchData.foodItemList.get(k).getCalories();
+                                totalProtein1200 = totalProtein1200 + FetchData.foodItemList.get(k).getProtein();
+                                totalCarbs1200 = totalCarbs1200 + FetchData.foodItemList.get(k).getCarbs();
+                                totalFat1200 = totalFat1200 + FetchData.foodItemList.get(k).getFat();
                             }
                         }
-                        totalMacros = totalProtein + totalCarbs + totalFat;
-                        proteinPercent = (totalProtein / totalMacros) * 100;
-                        carbPercent = (totalCarbs / totalMacros) * 100;
-                        fatPercent = (totalFat / totalMacros) * 100;
-
-                        binding.homeCaloriesTv.setText("" + Math.round(totalCal) + " Cal");
-                        binding.homeProteinTv.setText("" + Math.round(proteinPercent) + "% P");
-                        binding.homeCarbTv.setText("" + Math.round(carbPercent) + "% C");
-                        binding.homeFatTv.setText("" + Math.round(fatPercent) + "% F");
+                        displayNumbers();
                     }
                 });
 
@@ -357,6 +394,11 @@ public class HomeFragment extends Fragment {
                             itemsSelected1200.clear();
                             binding.homeItemsSelected1200.setText("");
                         }
+                        totalCal1200=0;
+                        totalProtein1200=0;
+                        totalCarbs1200=0;
+                        totalFat1200=0;
+                        displayNumbers();
                     }
                 });
                 AlertDialog dialog = mBuilder.create();
@@ -378,6 +420,16 @@ public class HomeFragment extends Fragment {
                         if (isChecked) {
                             itemsSelected1500.add(position);
                         } else {
+                            for (int j = 0; j < itemsSelected1500.size() ; j++) {
+                                for (int k = 0; k < FetchData.foodItemList.size(); k++) {
+                                    if (FetchData.foodItemList.get(k).getName().equals(selectableFoods[itemsSelected1500.get(j)])) {
+                                        totalCal = totalCal - FetchData.foodItemList.get(k).getCalories();
+                                        totalProtein = totalProtein - FetchData.foodItemList.get(k).getProtein();
+                                        totalCarbs = totalCarbs - FetchData.foodItemList.get(k).getCarbs();
+                                        totalFat = totalFat - FetchData.foodItemList.get(k).getFat();
+                                    }
+                                }
+                            }
                             itemsSelected1500.remove(((Integer.valueOf(position))));
                         }
                     }
@@ -395,26 +447,21 @@ public class HomeFragment extends Fragment {
                             }
                         }
                         binding.homeItemsSelected1500.setText(item);
-                        for (int i = 0; i < itemsSelected1500.size() ; i++) {
-                            for (int j = 0; j < FetchData.foodItemList.size(); j++) {
-                                if (FetchData.foodItemList.get(j).getName().equals(selectableFoods[itemsSelected1500.get(i)])) {
-                                    totalCal = totalCal + FetchData.foodItemList.get(j).getCalories();
-                                    totalProtein = totalProtein + FetchData.foodItemList.get(j).getProtein();
-                                    totalCarbs = totalCarbs + FetchData.foodItemList.get(j).getCarbs();
-                                    totalFat = totalFat + FetchData.foodItemList.get(j).getFat();
-                                    System.out.println("testing testing");
-                                }
+
+                        totalCal1500=0;
+                        totalProtein1500=0;
+                        totalCarbs1500=0;
+                        totalFat1500=0;
+
+                        for (int k = 0; k < FetchData.foodItemList.size(); k++) {
+                            if (item.contains(FetchData.foodItemList.get(k).getName())) {
+                                totalCal1500 = totalCal1500+ FetchData.foodItemList.get(k).getCalories();
+                                totalProtein1500 = totalProtein1500 + FetchData.foodItemList.get(k).getProtein();
+                                totalCarbs1500 = totalCarbs1500 + FetchData.foodItemList.get(k).getCarbs();
+                                totalFat1500 = totalFat1500 + FetchData.foodItemList.get(k).getFat();
                             }
                         }
-                        totalMacros = totalProtein + totalCarbs + totalFat;
-                        proteinPercent = (totalProtein / totalMacros) * 100;
-                        carbPercent = (totalCarbs / totalMacros) * 100;
-                        fatPercent = (totalFat / totalMacros) * 100;
-
-                        binding.homeCaloriesTv.setText("" + Math.round(totalCal) + " Cal");
-                        binding.homeProteinTv.setText("" + Math.round(proteinPercent) + "% P");
-                        binding.homeCarbTv.setText("" + Math.round(carbPercent) + "% C");
-                        binding.homeFatTv.setText("" + Math.round(fatPercent) + "% F");
+                        displayNumbers();
                     }
                 });
 
@@ -433,6 +480,11 @@ public class HomeFragment extends Fragment {
                             itemsSelected1500.clear();
                             binding.homeItemsSelected1500.setText("");
                         }
+                        totalCal1500=0;
+                        totalProtein1500=0;
+                        totalCarbs1500=0;
+                        totalFat1500=0;
+                        displayNumbers();
                     }
                 });
                 AlertDialog dialog = mBuilder.create();
@@ -454,6 +506,16 @@ public class HomeFragment extends Fragment {
                         if (isChecked) {
                             itemsSelected1800.add(position);
                         } else {
+                            for (int j = 0; j < itemsSelected1800.size() ; j++) {
+                                for (int k = 0; k < FetchData.foodItemList.size(); k++) {
+                                    if (FetchData.foodItemList.get(k).getName().equals(selectableFoods[itemsSelected1800.get(j)])) {
+                                        totalCal = totalCal - FetchData.foodItemList.get(k).getCalories();
+                                        totalProtein = totalProtein - FetchData.foodItemList.get(k).getProtein();
+                                        totalCarbs = totalCarbs - FetchData.foodItemList.get(k).getCarbs();
+                                        totalFat = totalFat - FetchData.foodItemList.get(k).getFat();
+                                    }
+                                }
+                            }
                             itemsSelected1800.remove(((Integer.valueOf(position))));
                         }
                     }
@@ -471,26 +533,21 @@ public class HomeFragment extends Fragment {
                             }
                         }
                         binding.homeItemsSelected1800.setText(item);
-                        for (int i = 0; i < itemsSelected1800.size() ; i++) {
-                            for (int j = 0; j < FetchData.foodItemList.size(); j++) {
-                                if (FetchData.foodItemList.get(j).getName().equals(selectableFoods[itemsSelected1800.get(i)])) {
-                                    totalCal = totalCal + FetchData.foodItemList.get(j).getCalories();
-                                    totalProtein = totalProtein + FetchData.foodItemList.get(j).getProtein();
-                                    totalCarbs = totalCarbs + FetchData.foodItemList.get(j).getCarbs();
-                                    totalFat = totalFat + FetchData.foodItemList.get(j).getFat();
-                                    System.out.println("testing testing");
-                                }
+
+                        totalCal1800=0;
+                        totalProtein1800=0;
+                        totalCarbs1800=0;
+                        totalFat1800=0;
+
+                        for (int k = 0; k < FetchData.foodItemList.size(); k++) {
+                            if (item.contains(FetchData.foodItemList.get(k).getName())) {
+                                totalCal1800 = totalCal1800+ FetchData.foodItemList.get(k).getCalories();
+                                totalProtein1800 = totalProtein1800 + FetchData.foodItemList.get(k).getProtein();
+                                totalCarbs1800 = totalCarbs1800 + FetchData.foodItemList.get(k).getCarbs();
+                                totalFat1800 = totalFat1800 + FetchData.foodItemList.get(k).getFat();
                             }
                         }
-                        totalMacros = totalProtein + totalCarbs + totalFat;
-                        proteinPercent = (totalProtein / totalMacros) * 100;
-                        carbPercent = (totalCarbs / totalMacros) * 100;
-                        fatPercent = (totalFat / totalMacros) * 100;
-
-                        binding.homeCaloriesTv.setText("" + Math.round(totalCal) + " Cal");
-                        binding.homeProteinTv.setText("" + Math.round(proteinPercent) + "% P");
-                        binding.homeCarbTv.setText("" + Math.round(carbPercent) + "% C");
-                        binding.homeFatTv.setText("" + Math.round(fatPercent) + "% F");
+                        displayNumbers();
                     }
                 });
 
@@ -509,6 +566,11 @@ public class HomeFragment extends Fragment {
                             itemsSelected1800.clear();
                             binding.homeItemsSelected1800.setText("");
                         }
+                        totalCal1800=0;
+                        totalProtein1800=0;
+                        totalCarbs1800=0;
+                        totalFat1800=0;
+                        displayNumbers();
                     }
                 });
                 AlertDialog dialog = mBuilder.create();
@@ -530,6 +592,16 @@ public class HomeFragment extends Fragment {
                         if (isChecked) {
                             itemsSelectedMisc.add(position);
                         } else {
+                            for (int j = 0; j < itemsSelectedMisc.size() ; j++) {
+                                for (int k = 0; k < FetchData.foodItemList.size(); k++) {
+                                    if (FetchData.foodItemList.get(k).getName().equals(selectableFoods[itemsSelectedMisc.get(j)])) {
+                                        totalCal = totalCal - FetchData.foodItemList.get(k).getCalories();
+                                        totalProtein = totalProtein - FetchData.foodItemList.get(k).getProtein();
+                                        totalCarbs = totalCarbs - FetchData.foodItemList.get(k).getCarbs();
+                                        totalFat = totalFat - FetchData.foodItemList.get(k).getFat();
+                                    }
+                                }
+                            }
                             itemsSelectedMisc.remove(((Integer.valueOf(position))));
                         }
                     }
@@ -547,26 +619,21 @@ public class HomeFragment extends Fragment {
                             }
                         }
                         binding.homeItemsSelectedMisc.setText(item);
-                        for (int i = 0; i < itemsSelectedMisc.size() ; i++) {
-                            for (int j = 0; j < FetchData.foodItemList.size(); j++) {
-                                if (FetchData.foodItemList.get(j).getName().equals(selectableFoods[itemsSelectedMisc.get(i)])) {
-                                    totalCal = totalCal + FetchData.foodItemList.get(j).getCalories();
-                                    totalProtein = totalProtein + FetchData.foodItemList.get(j).getProtein();
-                                    totalCarbs = totalCarbs + FetchData.foodItemList.get(j).getCarbs();
-                                    totalFat = totalFat + FetchData.foodItemList.get(j).getFat();
-                                    System.out.println("testing testing");
-                                }
+
+                        totalCalMisc=0;
+                        totalProteinMisc=0;
+                        totalCarbsMisc=0;
+                        totalFatMisc=0;
+
+                        for (int k = 0; k < FetchData.foodItemList.size(); k++) {
+                            if (item.contains(FetchData.foodItemList.get(k).getName())) {
+                                totalCalMisc = totalCalMisc+ FetchData.foodItemList.get(k).getCalories();
+                                totalProteinMisc = totalProteinMisc + FetchData.foodItemList.get(k).getProtein();
+                                totalCarbsMisc = totalCarbsMisc + FetchData.foodItemList.get(k).getCarbs();
+                                totalFatMisc = totalFatMisc + FetchData.foodItemList.get(k).getFat();
                             }
                         }
-                        totalMacros = totalProtein + totalCarbs + totalFat;
-                        proteinPercent = (totalProtein / totalMacros) * 100;
-                        carbPercent = (totalCarbs / totalMacros) * 100;
-                        fatPercent = (totalFat / totalMacros) * 100;
-
-                        binding.homeCaloriesTv.setText("" + Math.round(totalCal) + " Cal");
-                        binding.homeProteinTv.setText("" + Math.round(proteinPercent) + "% P");
-                        binding.homeCarbTv.setText("" + Math.round(carbPercent) + "% C");
-                        binding.homeFatTv.setText("" + Math.round(fatPercent) + "% F");
+                        displayNumbers();
                     }
                 });
 
@@ -585,6 +652,11 @@ public class HomeFragment extends Fragment {
                             itemsSelectedMisc.clear();
                             binding.homeItemsSelectedMisc.setText("");
                         }
+                        totalCalMisc=0;
+                        totalProteinMisc=0;
+                        totalCarbsMisc=0;
+                        totalFatMisc=0;
+                        displayNumbers();
                     }
                 });
                 AlertDialog dialog = mBuilder.create();
@@ -592,12 +664,24 @@ public class HomeFragment extends Fragment {
             }
         });
 
-
-
-
         return root;
     }
 
+    public void displayNumbers(){
+        totalCal=totalCal0600+totalCal0900+totalCal1100+totalCal1200+totalCal1500+totalCal1800+totalCalMisc;
+        totalProtein=totalProtein0600+totalProtein0900+totalProtein1100+totalProtein1200+totalProtein1500+totalProtein1800+totalProteinMisc;
+        totalCarbs=totalCarbs0600+totalCarbs0900+totalCarbs1100+totalCarbs1200+totalCarbs1500+totalCarbs1800+totalCarbsMisc;
+        totalFat=totalFat0600+totalFat0900+totalFat1100+totalFat1200+totalFat1500+totalFat1800+totalFatMisc;
+        totalMacros = totalProtein + totalCarbs + totalFat;
+        proteinPercent = (totalProtein / totalMacros) * 100;
+        carbPercent = (totalCarbs / totalMacros) * 100;
+        fatPercent = (totalFat / totalMacros) * 100;
+
+        binding.homeCaloriesTv.setText("" + Math.round(totalCal) + " Cal");
+        binding.homeProteinTv.setText("" + Math.round(proteinPercent) + "% P");
+        binding.homeCarbTv.setText("" + Math.round(carbPercent) + "% C");
+        binding.homeFatTv.setText("" + Math.round(fatPercent) + "% F");
+    }
 
     @Override
     public void onDestroyView() {

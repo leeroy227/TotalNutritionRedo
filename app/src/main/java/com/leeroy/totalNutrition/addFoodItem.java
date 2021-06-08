@@ -1,8 +1,8 @@
+/*
 package com.leeroy.totalNutrition;
 
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
+
 import android.view.View;
 import android.widget.Toast;
 
@@ -16,13 +16,14 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.leeroy.totalNutrition.ui.foodItems.FoodItemsFragment;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class addFoodItem extends AppCompatActivity {
-    final ProgressDialog loading = ProgressDialog.show(this,"Adding Item","Please wait");
-    final String name = editTextItemName.getText().toString().trim();
+public class addFoodItem<retryPolicy> extends AppCompatActivity {
+    final ProgressDialog loading = ProgressDialog.show(this, "Adding Item", "Please wait");
+    final String name = FoodItemsFragment.foodItemAddFoodText.getText().toString().trim();
 
 
     final StringRequest stringRequest = new StringRequest(Request.Method.POST, "Add Your Web App URL",
@@ -58,27 +59,18 @@ public class addFoodItem extends AppCompatActivity {
 
     int socketTimeOut = 50000;// u can change this .. here it is 50 seconds
 
-    RetryPolicy retryPolicy = new DefaultRetryPolicy (socketTimeOut, 0, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
-        stringRequest.setRetryPolicy()
+    RetryPolicy retryPolicy = new DefaultRetryPolicy(socketTimeOut, 0, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest
 
     RequestQueue queue = Volley.newRequestQueue(this);
 
-        queue.add(stringRequest);
+        queue.add(stringRequest)
 
 
 }
 
 
 
-
-    @Override
-    public void onClick(View v) {
-
-        if(v==buttonAddItem){
-            addItemToSheet();
-
-            //Define what to do when button is clicked
-        }
-    }
 }
 }
+*/

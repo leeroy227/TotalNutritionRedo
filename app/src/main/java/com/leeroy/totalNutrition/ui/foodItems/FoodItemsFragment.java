@@ -1,24 +1,37 @@
 package com.leeroy.totalNutrition.ui.foodItems;
 
-import android.app.Dialog;
+import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.leeroy.totalNutrition.FetchData;
+import com.leeroy.totalNutrition.AddFood;
 import com.leeroy.totalNutrition.R;
+import com.leeroy.totalNutrition.database.DBManager;
+import com.leeroy.totalNutrition.database.DatabaseHelper;
 import com.leeroy.totalNutrition.databinding.FragmentFoodItemsBinding;
 
 public class FoodItemsFragment extends Fragment {
     public static String text="";
     private FragmentFoodItemsBinding binding;
+    private DBManager dbManager;
+    private SimpleCursorAdapter adapter;
+    final String[] from = new String[]{DatabaseHelper._ID,DatabaseHelper.NAME};
+    final int[] to = new int[]{R.id.id,R.id.name};
+    private ListView listView;
+
 
 
 
@@ -28,36 +41,61 @@ public class FoodItemsFragment extends Fragment {
         binding = FragmentFoodItemsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        binding.foodItemsFab.setOnClickListener(new View.OnClickListener() {
+        setHasOptionsMenu(true);
+
+        dbManager = new DBManager(getContext());
+        dbManager.open();
+        Cursor cursor = dbManager.fetch();
+
+
+        adapter = new SimpleCursorAdapter(getContext(), R.layout.activity_add_food_item, cursor, from, to, 0);
+        adapter.notifyDataSetChanged();
+
+        binding.foodItemsListView.setAdapter(adapter);
+
+        binding.foodItemsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
             @Override
-            public void onClick(View view) {
-                final Dialog dialog = new Dialog(getContext());
-                dialog.setContentView(R.layout.dialog_view);
-                dialog.setTitle("Add Food to Database: ");
-                EditText addFoodItem = dialog.findViewById(R.id.food_item_add_food_text);
-                Button addFoodButton = dialog.findViewById(R.id.add_new_food_button);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long viewId) {
+                TextView idTextView = (TextView) view.findViewById(R.id.id);
+                TextView nameTextView = (TextView) view.findViewById(R.id.name);
 
-                addFoodButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        String name = String.valueOf(addFoodItem);
-                        myDbAdapter.insertData(name);
-                        dialog.dismiss();
-                    }
-                });
-                dialog.show();
+                String id = idTextView.getText().toString();
+                String name = nameTextView.getText().toString();
+               // Intent modify_intent = new Intent(getActivity().getApplicationContext(), ModifyFoodItemActivity.class);
+                //modify_intent.putExtra("name", name);
+               // modify_intent.putExtra("id", id);
+               // startActivity(modify_intent);
             }
-        });
+            });
 
-        //Sets the text of the scroll view to the dataParsed from FetchData.class
-        for(int i = 0; i< FetchData.foodItemList.size(); i++){
-           TextView textView = new TextView(getContext());
-           textView.setText(FetchData.foodItemList.get(i).getName());
-           textView.setTextSize(24);
-           binding.foodItemLinearLayout.addView(textView);
-       }
-        return root;
+
+
+
+   return root;
+
     }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.add_food_menu, menu);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+        if (id == R.id.add_food_button) {
+
+            Intent add_mem = new Intent(getContext(), AddFood.class);
+            startActivity(add_mem);
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 
     @Override
     public void onDestroyView() {

@@ -13,9 +13,9 @@ import androidx.fragment.app.Fragment;
 import com.leeroy.totalNutrition.FetchData;
 import com.leeroy.totalNutrition.R;
 import com.leeroy.totalNutrition.databinding.FragmentHomeBinding;
+import com.leeroy.totalNutrition.ui.nutritionFacts.NutritionFactsFragment;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 
 public class HomeFragment extends Fragment {
@@ -33,7 +33,7 @@ public class HomeFragment extends Fragment {
 
     boolean[] checkedItems0600= new boolean[selectableFoods.length];
     ArrayList<Integer> itemsSelected0600 = new ArrayList<>();
-    int count0600=0;
+
 
     boolean[] checkedItems0900= new boolean[selectableFoods.length];
     ArrayList<Integer> itemsSelected0900 = new ArrayList<>();
@@ -54,6 +54,7 @@ public class HomeFragment extends Fragment {
     ArrayList<Integer> itemsSelectedMisc = new ArrayList<>();
 
     private FragmentHomeBinding binding;
+    private String IS_CHECKED_LIST;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -115,6 +116,7 @@ public class HomeFragment extends Fragment {
                                 totalProtein0600 = totalProtein0600 + FetchData.foodItemList.get(k).getProtein();
                                 totalCarbs0600 = totalCarbs0600 + FetchData.foodItemList.get(k).getCarbs();
                                 totalFat0600 = totalFat0600 + FetchData.foodItemList.get(k).getFat();
+                                NutritionFactsFragment.totalCalories0600=totalCal0600;
                             }
                         }
                         displayNumbers();
@@ -668,7 +670,7 @@ public class HomeFragment extends Fragment {
     }
 
     public void displayNumbers(){
-        totalCal=totalCal0600+totalCal0900+totalCal1100+totalCal1200+totalCal1500+totalCal1800+totalCalMisc;
+        totalCal =totalCal0600+totalCal0900+totalCal1100+totalCal1200+totalCal1500+totalCal1800+totalCalMisc;
         totalProtein=totalProtein0600+totalProtein0900+totalProtein1100+totalProtein1200+totalProtein1500+totalProtein1800+totalProteinMisc;
         totalCarbs=totalCarbs0600+totalCarbs0900+totalCarbs1100+totalCarbs1200+totalCarbs1500+totalCarbs1800+totalCarbsMisc;
         totalFat=totalFat0600+totalFat0900+totalFat1100+totalFat1200+totalFat1500+totalFat1800+totalFatMisc;
@@ -682,6 +684,8 @@ public class HomeFragment extends Fragment {
         binding.homeCarbTv.setText("" + Math.round(carbPercent) + "% C");
         binding.homeFatTv.setText("" + Math.round(fatPercent) + "% F");
     }
+
+
 
     @Override
     public void onDestroyView() {

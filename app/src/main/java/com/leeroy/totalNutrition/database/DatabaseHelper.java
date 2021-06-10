@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper  extends SQLiteOpenHelper {
     //Table Name
-    public static final String TABLE_NAME = "Food Items";
+    public static final String TABLE_NAME = "Food_Items";
 
     //Table columns
     public static final String _ID = "_id";
@@ -19,8 +19,8 @@ public class DatabaseHelper  extends SQLiteOpenHelper {
     static final int DB_VERSION = 1;
 
     //Creating table query
-    private static final String CREATE_TABLE = "create table " + TABLE_NAME + "(" + _ID +
-            " INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME + " TEXT NOT NULL);";
+    private static final String CREATE_TABLE = "create table " + TABLE_NAME + "(" + _ID
+            + " INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME + " TEXT);";
 
     public DatabaseHelper(Context context){
         super(context,DB_NAME,null,DB_VERSION);

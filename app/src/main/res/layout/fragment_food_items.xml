@@ -7,15 +7,28 @@
     tools:context=".ui.foodItems.FoodItemsFragment">
 
 
-    <EditText
-        android:id="@+id/food_item_add_food_text"
+    <ListView
+        android:id="@+id/food_items_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="1dp"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/food_items_fab"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ListView>
+
+    <TextView
+        android:id="@+id/empty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
+        android:layout_centerInParent="true"
+        android:text="@string/empty_record"
         app:layout_constraintBottom_toTopOf="@+id/food_items_fab"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/food_items_fab"
@@ -25,25 +38,7 @@
         android:clickable="true"
         android:src="@drawable/ic_baseline_format_list_numbered_24"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginLeft="18dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:id="@+id/food_item_linear_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-        </LinearLayout>
-    </ScrollView>
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
